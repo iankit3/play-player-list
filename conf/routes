@@ -1,7 +1,7 @@
 # Routes
 # This file defines all application routes (Higher priority routes first)
 # https://www.playframework.com/documentation/latest/ScalaRouting
-# ~~~~
+# 
 
 # An example controller showing a sample home page
 GET /                                       controllers.HomeController.index
@@ -10,7 +10,10 @@ GET /tutorial                               controllers.HomeController.tutorial
 
 GET /player/get/                            controllers.PlayerController.get(id: Int ?= -1)
 GET /player/get/:id                         controllers.PlayerController.get(id: Int)
+
+# Idempotent routes are using GET
 GET /player/add/:player                     controllers.PlayerController.add(player: String)
+GET /player/remove/:id                      controllers.PlayerController.remove(id: Int)
 
 
 # Map static resources from the /public folder to the /assets URL path
